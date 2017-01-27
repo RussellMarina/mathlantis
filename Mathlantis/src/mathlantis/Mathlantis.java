@@ -15,7 +15,7 @@ public class Mathlantis {
     
     public static void main(String[] args){
         Game gameOne = new Game();
-        
+                
         gameOne.setTotalTime(1.00);
         
         String gameInfo = gameOne.toString();
