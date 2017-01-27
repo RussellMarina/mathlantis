@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class Map implements Serializable{
      private double rowCount;
-      private double columnCount;
+     private double columnCount;
 
     public Map() {
     }
