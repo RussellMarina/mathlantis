@@ -7,7 +7,10 @@ package mathlantis;
 
 import byui.cit260.mathlantis.model.Game;
 import byui.cit260.mathlantis.model.Map;
+import byui.cit260.mathlantis.model.PowerUpTypeScene;
+import byui.cit260.mathlantis.model.QuestionTypeScene;
 import byui.cit260.mathlantis.model.Questions;
+import byui.cit260.mathlantis.model.Scene;
 
 /**
  *
@@ -19,7 +22,9 @@ public class Mathlantis {
         Game gameOne = new Game();
         Map mapOne = new Map();
         Questions questionOne = new Questions();
-        
+        Scene sceneOne = new Scene();
+        PowerUpTypeScene powerUpTypeSceneOne = new PowerUpTypeScene();
+        QuestionTypeScene questionTypeSceneOne = new QuestionTypeScene();
         
         gameOne.setTotalTime(1.00);
         mapOne.setRowCount(5);
@@ -36,7 +41,21 @@ public class Mathlantis {
         System.out.println(mapInfo);
         System.out.println(questionsInfo);
         
+        sceneOne.setDescription("A Scary Sunken Pirate Ship!");
+        sceneOne.setBlockedLocation(Boolean.TRUE);
         
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);
         
+        powerUpTypeSceneOne.setAmountAvailable(5);
+        powerUpTypeSceneOne.setResourceType("Color Gems");
+        
+        String powerUpTypeSceneInfo = powerUpTypeSceneOne.toString();
+        System.out.println(powerUpTypeSceneInfo);
+        
+        questionTypeSceneOne.setQuestionType("Multiplication");
+        
+        String questionTypeSceneInfo = questionTypeSceneOne.toString();
+        System.out.println(questionTypeSceneInfo);
     }
 }
