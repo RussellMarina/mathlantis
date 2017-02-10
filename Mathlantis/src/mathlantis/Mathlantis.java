@@ -26,36 +26,34 @@ public class Mathlantis {
         PowerUpTypeScene powerUpTypeSceneOne = new PowerUpTypeScene();
         QuestionTypeScene questionTypeSceneOne = new QuestionTypeScene();
         
+        
+        
         gameOne.setTotalTime(1.00);
         mapOne.setRowCount(5);
         mapOne.setColumnCount(8);
         questionOne.setGrade(1);
         questionOne.setQuestionTime(1);
         questionOne.setUsedPowerUp(10);
+        sceneOne.setDescription("A Scary Sunken Pirate Ship!");
+        sceneOne.setBlockedLocation(Boolean.TRUE);
+        powerUpTypeSceneOne.setAmountAvailable(5);
+        powerUpTypeSceneOne.setResourceType("Color Gems");
+        questionTypeSceneOne.setQuestionType("Multiplication");
         
         String gameInfo = gameOne.toString();
         String mapInfo = mapOne.toString();
         String questionsInfo = questionOne.toString();
+        String sceneInfo = sceneOne.toString();
+        String powerUpTypeSceneInfo = powerUpTypeSceneOne.toString();
+        String questionTypeSceneInfo = questionTypeSceneOne.toString();
+        
         
         System.out.println(gameInfo);
         System.out.println(mapInfo);
         System.out.println(questionsInfo);
-        
-        sceneOne.setDescription("A Scary Sunken Pirate Ship!");
-        sceneOne.setBlockedLocation(Boolean.TRUE);
-        
-        String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);
-        
-        powerUpTypeSceneOne.setAmountAvailable(5);
-        powerUpTypeSceneOne.setResourceType("Color Gems");
-        
-        String powerUpTypeSceneInfo = powerUpTypeSceneOne.toString();
         System.out.println(powerUpTypeSceneInfo);
-        
-        questionTypeSceneOne.setQuestionType("Multiplication");
-        
-        String questionTypeSceneInfo = questionTypeSceneOne.toString();
         System.out.println(questionTypeSceneInfo);
+    
     }
 }
