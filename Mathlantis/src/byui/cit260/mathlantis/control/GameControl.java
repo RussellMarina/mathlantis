@@ -11,4 +11,17 @@ package byui.cit260.mathlantis.control;
  */
 public class GameControl {
     
+    public int calculateScore(int powerUpsUsed) {
+    
+        if (powerUpsUsed < 0 || powerUpsUsed > 25) {
+            return -1;
+        }
+        
+        // highest score possible is 25.  Subtract number of power ups used 
+        // in order to get the final score.
+        int finalScore = 25 - powerUpsUsed;
+        
+        return finalScore;
+    }
+    
 }
