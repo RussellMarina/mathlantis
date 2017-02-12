@@ -10,10 +10,11 @@ package byui.cit260.mathlantis.control;
  * @author Marina
  */
 import java.util.Random;
+
 public class QuestionControl {
     
     /**
-     * Returns a one dimentional array that represents 
+     * Returns a one dimensional array that represents 
      * a math problem.
      * The array should be 4 integers long
      * [arg1 arg2 answer type]
@@ -24,7 +25,7 @@ public class QuestionControl {
      * 3=division
      * 
      * @param gradeLevel, 1, 2, or 3
-     * @return a one dimentional array that represents 
+     * @return a one dimensional array that represents 
      * a math problem.
      * 
      * */
@@ -108,5 +109,44 @@ public class QuestionControl {
         }
     }
 
+    /* @param String answer: the answer input by the user
+     * @param int Correct: The correct answer
+     * @return byte check 0: correct answer
+                   1: the answer is incorrect
+                   2: error, the supplied answer is not within the correct bounds
+    */
+ public int submitAnswer(String answer, int correct)
+{
+    byte check = 0;
+    int submitted = 0;
+    boolean badFormat = false;
+    try {
+        submitted = Integer.parseInt(answer);
+        
+    } catch (NumberFormatException e) {
+        submitted = -1;
+        badFormat = true;
+        System.out.println("Answer is invalid: please try again.  Answer cannot be longer than 3 characters and may not contain letters or special characters");
+        check = 2;//answer out of bounds.  Perhaps not a number
+        return check;
+    }
+    
+	if ((submitted < 0)||(submitted>999)){
+		System.out.println("Answer is invalid: please try again.  Answer cannot be longer than 3 characters and may not be negative");
+		check = 1;//answer out of bounds, is a number, but too high or too low
+            return check;
+        }
+	if (submitted == correct){
+            check = 0;//right answer
+            return check;
+        }
+        else{
+            check = 1;//wrong answer but inbounds
+            return check;
+        }
+}
+   
+    
+    
 }
 

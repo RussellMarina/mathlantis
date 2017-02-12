@@ -6,7 +6,7 @@
 package byui.cit260.mathlantis.control;
 
 import org.junit.Test;
-//import static org.junit.Assert.*;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -48,6 +48,59 @@ public class QuestionControlTest {
          System.out.print(result[i]);
        }
         
+    }
+
+    /**
+     * Test of submitAnswer method, of class QuestionControl.
+     */
+    @Test
+    public void testSubmitAnswer() {
+        
+        System.out.println("submitAnswer");
+        
+        //test case #1
+        String answer = "101";
+        int correct = 101;
+        QuestionControl instance = new QuestionControl();
+        int expResult = 0;
+        int result = instance.submitAnswer(answer, correct);
+        assertEquals(expResult, result);
+        
+        
+        //test case #2
+        answer = "Hello";
+        correct = 15;
+        //QuestionControl instance = new QuestionControl();
+        expResult = 2;
+        result = instance.submitAnswer(answer, correct);
+        assertEquals(expResult, result);
+        
+        //test case #3
+        answer = "-250";
+        correct = 12;
+        //QuestionControl instance = new QuestionControl();
+        expResult = 1;
+        result = instance.submitAnswer(answer, correct);
+        assertEquals(expResult, result);
+        
+        //test case #4
+        answer = "13";
+        correct = 12;
+        //QuestionControl instance = new QuestionControl();
+        expResult = 1;
+        result = instance.submitAnswer(answer, correct);
+        assertEquals(expResult, result);
+        
+        //test case #5
+        answer = "10435";
+        correct = 12;
+        //QuestionControl instance = new QuestionControl();
+        expResult = 1;
+        result = instance.submitAnswer(answer, correct);
+        assertEquals(expResult, result);
+        
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
     }
     
 }
