@@ -11,6 +11,10 @@ package byui.cit260.mathlantis.control;
  */
 public class GameControl {
     
+    public static void createNewGame(Player player){
+        System.out.println("\n*** createNewGame stub function called ***");
+    }
+    
     public int calculateScore(int powerUpsUsed) {
     
         if (powerUpsUsed < 0 || powerUpsUsed > 25) {

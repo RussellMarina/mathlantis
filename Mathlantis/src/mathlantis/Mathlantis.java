@@ -14,6 +14,7 @@ import byui.cit260.mathlantis.model.Scene;
  * @author Marina
  */
 public class Mathlantis {
+
     
     public static void main(String[] args){
         
