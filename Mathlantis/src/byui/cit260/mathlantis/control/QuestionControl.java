@@ -29,7 +29,7 @@ public class QuestionControl {
      * a math problem.
      * 
      * */
-    public int[] generateQuestion(int gradeLevel){
+    public static int[] generateQuestion(int gradeLevel){
         Random rnd = new Random();
         int equation[]=new int[4];
         if (gradeLevel==1){
@@ -115,7 +115,7 @@ public class QuestionControl {
                    1: the answer is incorrect
                    2: error, the supplied answer is not within the correct bounds
     */
- public int submitAnswer(String answer, int correct)
+ public static int submitAnswer(String answer, int correct)
 {
     byte check = 0;
     int submitted = 0;

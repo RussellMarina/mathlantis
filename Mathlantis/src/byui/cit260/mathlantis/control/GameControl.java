@@ -5,14 +5,31 @@
  */
 package byui.cit260.mathlantis.control;
 
+import byui.cit260.mathlantis.model.Player;
+import mathlantis.Mathlantis;
+
 /**
  *
  * @author Marina
  */
 public class GameControl {
-    
-    public static void createNewGame(Player player){
-        System.out.println("\n*** createNewGame stub function called ***");
+
+    public static Player createPlayer(String playersName) {
+                    if (playersName == null){
+                        return null;
+                    }
+                    Player player = new Player();
+                    player.setPlayer(playersName, 1, true );
+                    Mathlantis.setCurrentPlayer(player); //save the player
+                    return player;
+                    
+                    
+             
+    }
+    Player currentPlayer;
+    public void createNewGame(Player new_player){
+        currentPlayer = new_player;
+        //System.out.println("\n*** createNewGame stub function called ***");
     }
     
     public int calculateScore(int powerUpsUsed) {

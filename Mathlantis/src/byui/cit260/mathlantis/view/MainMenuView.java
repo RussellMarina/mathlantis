@@ -6,7 +6,11 @@
 package byui.cit260.mathlantis.view;
 
 import byui.cit260.mathlantis.control.GameControl;
+import byui.cit260.mathlantis.model.Questions;
+import byui.cit260.mathlantis.control.QuestionControl;
+import byui.cit260.mathlantis.model.Player;
 import java.util.Scanner;
+import mathlantis.Mathlantis;
 
 /**
  *
@@ -14,10 +18,11 @@ import java.util.Scanner;
  */
 public class MainMenuView {
     
+       
     private String menu;
     private String promptMessage;
     private Object Mathlantis;
-    public MainMenuView(){
+    public void MainMenuView(){
         this.menu = "\n"
                   +"\n--------------------------------------"
                   +"\n| Main Menu                          |"
@@ -28,12 +33,13 @@ public class MainMenuView {
                 + "\nS - Save game "
                 + "\nQ - Quit"
                 + "\n-------------------------------------";
+        
     }
     /**
      * displays the start program view
      */
     public void displayMainMenuView(){
-        
+        System.out.println(menu);
         boolean done = false; // set flag to not done
         do{
             //prompt for and get players name
@@ -94,12 +100,114 @@ public class MainMenuView {
 
     private void startNewGame() {
         // create a new game
-        GameControl.createNewGame(Mathlantis.getPlayer());
+        GameControl theGameControl = new GameControl();
+        System.out.println("\nEnter Player name, then press Enter");
+        //GameControl GameControl = GameControl.createNewGame(Mathlantis.getPlayer());
         // display the game menu
+        String new_name = this.getinput_Name();
+        System.out.println("\nEnter Grade Level: 1, 2, or 3");
+        int new_gradeLevel = this.getinput_GradeLevel();
+        System.out.println("\nIs "+new_name+" a boy or a girl?"+
+                "\nEnter B or G");
+        boolean new_male = this.getinput_Gender(new_name);
+        Player currentPlayer = new Player();
+        currentPlayer.setPlayer(new_name, new_gradeLevel, new_male);
+        //Mathlantis.setCurrentPlayer(currentPlayer);
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        QuestionControl theQuestions = new QuestionControl();
+        gameMenu.displayMenu(theGameControl, theQuestions);
     }
+    private String getinput_Name(){
+       Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+       String value =""; // value to be rturned
+       boolean valid = false; // initialize to not valid
+       
+       while (!valid){// loop while an invalid value is enter
+           
+           
+           value = keyboard.nextLine(); //get next line typed on keyboard
+           value = value.trim(); // trim off leading and trailing blanks
+           
+           if(value.length()< 1) {//value is blank
+               System.out.println("\nInvalid value: value can not be blank");
+               continue;
+           }
+           break; // end the loop
+       }
+       System.out.println("\nPlayer name is "+value);
+        return value; // return the value entered
+}
+    private int getinput_GradeLevel(){
+       Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+       String value =""; 
+       int grade = 0;
+       boolean valid = false; // initialize to not valid
+       
+       while (!valid){// loop while an invalid value is enter
+           
+           
+           value = keyboard.nextLine(); //get next line typed on keyboard
+           value = value.trim(); // trim off leading and trailing blanks
+           
+           
+           if(value.equals("1")){
+               grade = 1;
+               //System.out.println("\nYou entered 1");
+               valid = true;
+           }
+           if(value.equals("2")){
+               grade = 2;
+               valid = true;
+           }
+           if(value.equals("3")){
+               grade = 3;
+               valid = true;
+           }
+           if(!valid){
+           System.out.println("\nInvalid value: enter 1, 2, or 3");
+           }
+       }
+        System.out.println("\nGrade Level is "+value);
+        return grade; // return the value entered
+    }
+    private boolean getinput_Gender(String name){
+        Scanner keyboard = new Scanner(System.in); // get infile for keyboard
+       String value =""; 
+       boolean male = false;
+       boolean valid = false; // initialize to not valid
+       String Gender = "";
+       
+       while (!valid){// loop while an invalid value is enter
+           
+           
+           value = keyboard.nextLine(); //get next line typed on keyboard
+           value = value.trim(); // trim off leading and trailing blanks
+           
+           
+           if(value.equals("B") || value.equals("b")){
+               male = true;
+               Gender = "boy";
+               valid = true;
+           }
+           if(value.equals("G") || value.equals("g")){
+               male = false;
+               Gender = "girl";
+               valid = true;
+           }
+           if(!valid){
+           System.out.println("\nInvalid value: enter B or G");
+           }
+           
+       }
+       
+        System.out.println("\n"+name+" is a "+Gender);
+        return male; // return the value entered
+    }
+public static Player getPlayer() {
 
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    }
     private void startExistingGame() {
         System.out.println("*** startExistingGame function called ***");        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
